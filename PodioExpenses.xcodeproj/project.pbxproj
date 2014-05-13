@@ -1,0 +1,363 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		502066C31922C384004721A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 502066C21922C384004721A1 /* Foundation.framework */; };
+		502066C51922C384004721A1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 502066C41922C384004721A1 /* CoreGraphics.framework */; };
+		502066C71922C384004721A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 502066C61922C384004721A1 /* UIKit.framework */; };
+		502066CD1922C384004721A1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 502066CB1922C384004721A1 /* InfoPlist.strings */; };
+		502066CF1922C384004721A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 502066CE1922C384004721A1 /* main.m */; };
+		502066D31922C384004721A1 /* PEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 502066D21922C384004721A1 /* PEAppDelegate.m */; };
+		502066D61922C384004721A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 502066D41922C384004721A1 /* Main.storyboard */; };
+		502066D91922C384004721A1 /* PEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 502066D81922C384004721A1 /* PEViewController.m */; };
+		502066DB1922C384004721A1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 502066DA1922C384004721A1 /* Images.xcassets */; };
+		86A431D5CEE64087AF44E78A /* libPods-PodioExpenses.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 463D34741DEE4A8AA9B648D3 /* libPods-PodioExpenses.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		463D34741DEE4A8AA9B648D3 /* libPods-PodioExpenses.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PodioExpenses.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D6BAD17B4DA4C12850AB88D /* Pods-PodioExpenses.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodioExpenses.xcconfig"; path = "Pods/Pods-PodioExpenses.xcconfig"; sourceTree = "<group>"; };
+		502066BF1922C384004721A1 /* PodioExpenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PodioExpenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		502066C21922C384004721A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		502066C41922C384004721A1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		502066C61922C384004721A1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		502066CA1922C384004721A1 /* PodioExpenses-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PodioExpenses-Info.plist"; sourceTree = "<group>"; };
+		502066CC1922C384004721A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		502066CE1922C384004721A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		502066D01922C384004721A1 /* PodioExpenses-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PodioExpenses-Prefix.pch"; sourceTree = "<group>"; };
+		502066D11922C384004721A1 /* PEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PEAppDelegate.h; sourceTree = "<group>"; };
+		502066D21922C384004721A1 /* PEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PEAppDelegate.m; sourceTree = "<group>"; };
+		502066D51922C384004721A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		502066D71922C384004721A1 /* PEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PEViewController.h; sourceTree = "<group>"; };
+		502066D81922C384004721A1 /* PEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PEViewController.m; sourceTree = "<group>"; };
+		502066DA1922C384004721A1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		502066E11922C384004721A1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		502066BC1922C384004721A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				502066C51922C384004721A1 /* CoreGraphics.framework in Frameworks */,
+				502066C71922C384004721A1 /* UIKit.framework in Frameworks */,
+				502066C31922C384004721A1 /* Foundation.framework in Frameworks */,
+				86A431D5CEE64087AF44E78A /* libPods-PodioExpenses.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		502066B61922C384004721A1 = {
+			isa = PBXGroup;
+			children = (
+				502066C81922C384004721A1 /* PodioExpenses */,
+				502066C11922C384004721A1 /* Frameworks */,
+				502066C01922C384004721A1 /* Products */,
+				4D6BAD17B4DA4C12850AB88D /* Pods-PodioExpenses.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		502066C01922C384004721A1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				502066BF1922C384004721A1 /* PodioExpenses.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		502066C11922C384004721A1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				502066C21922C384004721A1 /* Foundation.framework */,
+				502066C41922C384004721A1 /* CoreGraphics.framework */,
+				502066C61922C384004721A1 /* UIKit.framework */,
+				502066E11922C384004721A1 /* XCTest.framework */,
+				463D34741DEE4A8AA9B648D3 /* libPods-PodioExpenses.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		502066C81922C384004721A1 /* PodioExpenses */ = {
+			isa = PBXGroup;
+			children = (
+				502066D11922C384004721A1 /* PEAppDelegate.h */,
+				502066D21922C384004721A1 /* PEAppDelegate.m */,
+				502066D41922C384004721A1 /* Main.storyboard */,
+				502066D71922C384004721A1 /* PEViewController.h */,
+				502066D81922C384004721A1 /* PEViewController.m */,
+				502066DA1922C384004721A1 /* Images.xcassets */,
+				502066C91922C384004721A1 /* Supporting Files */,
+			);
+			path = PodioExpenses;
+			sourceTree = "<group>";
+		};
+		502066C91922C384004721A1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				502066CA1922C384004721A1 /* PodioExpenses-Info.plist */,
+				502066CB1922C384004721A1 /* InfoPlist.strings */,
+				502066CE1922C384004721A1 /* main.m */,
+				502066D01922C384004721A1 /* PodioExpenses-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		502066BE1922C384004721A1 /* PodioExpenses */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 502066F11922C384004721A1 /* Build configuration list for PBXNativeTarget "PodioExpenses" */;
+			buildPhases = (
+				50C33B51CC474DBC940D719D /* Check Pods Manifest.lock */,
+				502066BB1922C384004721A1 /* Sources */,
+				502066BC1922C384004721A1 /* Frameworks */,
+				502066BD1922C384004721A1 /* Resources */,
+				D06D99E7BE8F4A4AA961A38C /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PodioExpenses;
+			productName = PodioExpenses;
+			productReference = 502066BF1922C384004721A1 /* PodioExpenses.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		502066B71922C384004721A1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PE;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Citrix Systems, Inc.";
+			};
+			buildConfigurationList = 502066BA1922C384004721A1 /* Build configuration list for PBXProject "PodioExpenses" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 502066B61922C384004721A1;
+			productRefGroup = 502066C01922C384004721A1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				502066BE1922C384004721A1 /* PodioExpenses */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		502066BD1922C384004721A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				502066DB1922C384004721A1 /* Images.xcassets in Resources */,
+				502066CD1922C384004721A1 /* InfoPlist.strings in Resources */,
+				502066D61922C384004721A1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		50C33B51CC474DBC940D719D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D06D99E7BE8F4A4AA961A38C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-PodioExpenses-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		502066BB1922C384004721A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				502066CF1922C384004721A1 /* main.m in Sources */,
+				502066D91922C384004721A1 /* PEViewController.m in Sources */,
+				502066D31922C384004721A1 /* PEAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		502066CB1922C384004721A1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				502066CC1922C384004721A1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		502066D41922C384004721A1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				502066D51922C384004721A1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		502066EF1922C384004721A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		502066F01922C384004721A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		502066F21922C384004721A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D6BAD17B4DA4C12850AB88D /* Pods-PodioExpenses.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PodioExpenses/PodioExpenses-Prefix.pch";
+				INFOPLIST_FILE = "PodioExpenses/PodioExpenses-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		502066F31922C384004721A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D6BAD17B4DA4C12850AB88D /* Pods-PodioExpenses.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PodioExpenses/PodioExpenses-Prefix.pch";
+				INFOPLIST_FILE = "PodioExpenses/PodioExpenses-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		502066BA1922C384004721A1 /* Build configuration list for PBXProject "PodioExpenses" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				502066EF1922C384004721A1 /* Debug */,
+				502066F01922C384004721A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		502066F11922C384004721A1 /* Build configuration list for PBXNativeTarget "PodioExpenses" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				502066F21922C384004721A1 /* Debug */,
+				502066F31922C384004721A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 502066B71922C384004721A1 /* Project object */;
+}
