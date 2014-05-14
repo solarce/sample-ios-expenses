@@ -86,7 +86,8 @@ static NSNumberFormatter *moneyFormatter = nil;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   if ([segue.identifier isEqualToString:@"AddExpense"]) {
-    PEAddExpenseViewController *controller = segue.destinationViewController;
+    UINavigationController *navController = segue.destinationViewController;
+    PEAddExpenseViewController *controller = (PEAddExpenseViewController *)navController.topViewController;
     controller.delegate = self;
   }
 }
