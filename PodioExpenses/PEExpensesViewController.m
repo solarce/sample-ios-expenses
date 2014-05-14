@@ -20,12 +20,6 @@ static NSNumberFormatter *moneyFormatter = nil;
 
 @implementation PEExpensesViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-  [super viewWillAppear:animated];
-  
-  [self refreshExpenses];
-}
-
 + (void)initialize {
   if (self == [PEExpensesViewController class]) {
     static dispatch_once_t onceToken;
@@ -34,6 +28,14 @@ static NSNumberFormatter *moneyFormatter = nil;
       moneyFormatter.numberStyle = NSNumberFormatterDecimalStyle;
     });
   }
+}
+
+#pragma mark - UIViewController
+
+- (void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+  
+  [self refreshExpenses];
 }
 
 #pragma mark - Private
@@ -57,7 +59,7 @@ static NSNumberFormatter *moneyFormatter = nil;
   }];
 }
 
-#pragma mark - Table view data source
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   return [self.expenses count];
@@ -69,9 +71,10 @@ static NSNumberFormatter *moneyFormatter = nil;
   
   PKTItem *expense = self.expenses[indexPath.row];
   PKTMoney *money = expense[@"amount-2"];
+  NSString *amountString = [moneyFormatter stringFromNumber:money.amount];
   
   cell.textLabel.text = expense.title;
-  cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", [moneyFormatter stringFromNumber:money.amount], money.currency];
+  cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", amountString, money.currency];
   
   return cell;
 }
@@ -85,6 +88,8 @@ static NSNumberFormatter *moneyFormatter = nil;
 #pragma mark - Storyboard
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  // Make sure this VC is the delegate to be notified when a new expense is created in order
+  // to dismiss the presented VC.
   if ([segue.identifier isEqualToString:@"AddExpense"]) {
     UINavigationController *navController = segue.destinationViewController;
     PEAddExpenseViewController *controller = (PEAddExpenseViewController *)navController.topViewController;
@@ -92,6 +97,7 @@ static NSNumberFormatter *moneyFormatter = nil;
   }
 }
 
+// This empty method is needed for the segue to be able to be unwinded. Don't ask me why.
 - (IBAction)closeAddExpense:(UIStoryboardSegue *)segue {}
 
 @end

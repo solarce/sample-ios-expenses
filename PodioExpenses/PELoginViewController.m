@@ -19,11 +19,13 @@
 @implementation PELoginViewController
 
 - (IBAction)login {
+  // Normally you would perform some kind of validation here, but we will skip it for this sample app.
   NSString *email = self.emailTextField.text;
   NSString *password = self.passwordTextField.text;
   
   [SVProgressHUD showWithStatus:@"Singing in..."];
   
+  // This will authenticate the user agains the Podio API and maintain a session token
   [PodioKit authenticateAsUserWithEmail:email password:password completion:^(PKTResponse *response, NSError *error) {
     [SVProgressHUD dismiss];
     
