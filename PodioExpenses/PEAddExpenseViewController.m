@@ -47,8 +47,8 @@ static NSString * const kPhotoImageName = @"Receipt.jpg";
       
       PKTItem *item = [PKTItem itemForAppWithID:PODIO_APP_ID];
       item[@"title"] = title;
-      item[@"amount-2"] = amount;
-      item[@"receipt-photo"] = file;
+      item[@"amount"] = amount;
+      item[@"receipt"] = file;
 
       [item saveWithCompletion:^(PKTResponse *response, NSError *error) {
         PEAddExpenseViewController __strong *strongSelf = weakSelf;

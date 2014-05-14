@@ -70,7 +70,7 @@ static NSNumberFormatter *moneyFormatter = nil;
   UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
   
   PKTItem *expense = self.expenses[indexPath.row];
-  PKTMoney *money = expense[@"amount-2"];
+  PKTMoney *money = expense[@"amount"];
   NSString *amountString = [moneyFormatter stringFromNumber:money.amount];
   
   cell.textLabel.text = expense.title;
