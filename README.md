@@ -2,6 +2,8 @@
 
 *Podio Expenses* is an iPhone app for reporting expense built using [PodioKit](https://github.com/podio/podio-objc), the Podio Objective-C library. It is meant to demonstrate the functionality of PodioKit and serve as a reference implementation.
 
+![List of expenses](Docs/Images/ExpensesList.png) ![Add an expense](Docs/Images/AddExpense.png)
+
 ## Run the app
 
 Before you can run the app, you need to setup your own API key and secret as well as the Podio app to use as a backend for the iOS app.
@@ -29,7 +31,7 @@ This project uses [CocoaPods](http://cocoapods.org/) to install 3rd party depend
 $ pod install
 ```
 
-Finally, you need to update the [PEConfig.h](https://github.com/podio/sample-ios-expenses/blob/master/PodioExpenses/PEConfig.h) file in the project with your API key, secret and app ID.
+Finally, you need to update the [PEConfig.h](PodioExpenses/PEConfig.h) file in the project with your API key, secret and app ID.
 
 That's it. You should now be able to build and run the app on a device or simulator.
 
