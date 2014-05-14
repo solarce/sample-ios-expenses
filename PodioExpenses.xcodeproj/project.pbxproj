@@ -14,8 +14,9 @@
 		502066CF1922C384004721A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 502066CE1922C384004721A1 /* main.m */; };
 		502066D31922C384004721A1 /* PEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 502066D21922C384004721A1 /* PEAppDelegate.m */; };
 		502066D61922C384004721A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 502066D41922C384004721A1 /* Main.storyboard */; };
-		502066D91922C384004721A1 /* PEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 502066D81922C384004721A1 /* PEViewController.m */; };
 		502066DB1922C384004721A1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 502066DA1922C384004721A1 /* Images.xcassets */; };
+		502066F91923449E004721A1 /* PEExpensesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 502066F81923449E004721A1 /* PEExpensesViewController.m */; };
+		502066FD19234942004721A1 /* PELoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 502066FC19234942004721A1 /* PELoginViewController.m */; };
 		86A431D5CEE64087AF44E78A /* libPods-PodioExpenses.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 463D34741DEE4A8AA9B648D3 /* libPods-PodioExpenses.a */; };
 /* End PBXBuildFile section */
 
@@ -33,10 +34,13 @@
 		502066D11922C384004721A1 /* PEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PEAppDelegate.h; sourceTree = "<group>"; };
 		502066D21922C384004721A1 /* PEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PEAppDelegate.m; sourceTree = "<group>"; };
 		502066D51922C384004721A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		502066D71922C384004721A1 /* PEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PEViewController.h; sourceTree = "<group>"; };
-		502066D81922C384004721A1 /* PEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PEViewController.m; sourceTree = "<group>"; };
 		502066DA1922C384004721A1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		502066E11922C384004721A1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		502066F71923449E004721A1 /* PEExpensesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEExpensesViewController.h; sourceTree = "<group>"; };
+		502066F81923449E004721A1 /* PEExpensesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEExpensesViewController.m; sourceTree = "<group>"; };
+		502066FA19234677004721A1 /* PEConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PEConstants.h; sourceTree = "<group>"; };
+		502066FB19234942004721A1 /* PELoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PELoginViewController.h; sourceTree = "<group>"; };
+		502066FC19234942004721A1 /* PELoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PELoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,11 +91,14 @@
 		502066C81922C384004721A1 /* PodioExpenses */ = {
 			isa = PBXGroup;
 			children = (
+				502066FA19234677004721A1 /* PEConstants.h */,
 				502066D11922C384004721A1 /* PEAppDelegate.h */,
 				502066D21922C384004721A1 /* PEAppDelegate.m */,
+				502066F71923449E004721A1 /* PEExpensesViewController.h */,
+				502066F81923449E004721A1 /* PEExpensesViewController.m */,
+				502066FB19234942004721A1 /* PELoginViewController.h */,
+				502066FC19234942004721A1 /* PELoginViewController.m */,
 				502066D41922C384004721A1 /* Main.storyboard */,
-				502066D71922C384004721A1 /* PEViewController.h */,
-				502066D81922C384004721A1 /* PEViewController.m */,
 				502066DA1922C384004721A1 /* Images.xcassets */,
 				502066C91922C384004721A1 /* Supporting Files */,
 			);
@@ -211,8 +218,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				502066CF1922C384004721A1 /* main.m in Sources */,
-				502066D91922C384004721A1 /* PEViewController.m in Sources */,
+				502066F91923449E004721A1 /* PEExpensesViewController.m in Sources */,
 				502066D31922C384004721A1 /* PEAppDelegate.m in Sources */,
+				502066FD19234942004721A1 /* PELoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

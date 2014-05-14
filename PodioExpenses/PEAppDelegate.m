@@ -6,41 +6,85 @@
 //  Copyright (c) 2014 Citrix Systems, Inc. All rights reserved.
 //
 
+#import <FXKeychain/FXKeychain.h>
 #import "PEAppDelegate.h"
+#import "PEConstants.h"
+
+static NSString * const kTokenKey = @"PodioExpensesToken";
+
+@interface PEAppDelegate ()
+
+@property (nonatomic, weak) UINavigationController *loginNavController;
+
+@end
 
 @implementation PEAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
-    return YES;
-}
-							
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-  // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-  // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  [PodioKit setupWithAPIKey:PODIO_KEY secret:PODIO_SECRET];
+  
+  [self restoreTokenIfNeeded];
+  [self setupNotifications];
+  
+  return YES;
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-  // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-  // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+  [self restoreTokenIfNeeded];
+  [self updateLoginScreen];
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-  // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+#pragma mark - Private
+
+- (void)setupNotifications {
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(sessionDidChange:)
+                                               name:PKTClientAuthenticationStateDidChangeNotification
+                                             object:nil];
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-  // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+- (void)updateLoginScreen {
+  if ([PodioKit isAuthenticated] && self.loginNavController) {
+    [self.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
+    self.loginNavController = nil;
+  } else if (![PodioKit isAuthenticated] && !self.loginNavController) {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    self.loginNavController = [storyboard instantiateViewControllerWithIdentifier:@"LoginNavController"];
+    
+    [self.window.rootViewController presentViewController:self.loginNavController animated:NO completion:nil];
+  }
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-  // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+- (void)saveToken {
+  PKTOAuth2Token *token = [PKTClient sharedClient].oauthToken;
+  NSData *tokenData = [NSKeyedArchiver archivedDataWithRootObject:token];
+  if (tokenData) {
+    [[FXKeychain defaultKeychain] setObject:tokenData forKey:kTokenKey];
+  }
+}
+
+- (PKTOAuth2Token *)savedToken {
+  NSData *tokenData = [[FXKeychain defaultKeychain] objectForKey:kTokenKey];
+  
+  PKTOAuth2Token *token = nil;
+  if (tokenData) {
+    token = [NSKeyedUnarchiver unarchiveObjectWithData:tokenData];
+  }
+  
+  return token;
+}
+
+- (void)restoreTokenIfNeeded {
+  if (![PodioKit isAuthenticated]) {
+    [PKTClient sharedClient].oauthToken = [self savedToken];
+  }
+}
+
+#pragma mark - Notifications
+
+- (void)sessionDidChange:(NSNotification *)notification {
+  [self saveToken];
+  [self updateLoginScreen];
 }
 
 @end
