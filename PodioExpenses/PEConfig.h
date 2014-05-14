@@ -1,5 +1,5 @@
 //
-//  PEConstants.h
+//  PEConfig.h
 //  PodioExpenses
 //
 //  Created by Sebastian Rehnby on 14/05/14.

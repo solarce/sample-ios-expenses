@@ -39,7 +39,7 @@
 		502066E11922C384004721A1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		502066F71923449E004721A1 /* PEExpensesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEExpensesViewController.h; sourceTree = "<group>"; };
 		502066F81923449E004721A1 /* PEExpensesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEExpensesViewController.m; sourceTree = "<group>"; };
-		502066FA19234677004721A1 /* PEConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PEConstants.h; sourceTree = "<group>"; };
+		502066FA19234677004721A1 /* PEConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PEConfig.h; sourceTree = "<group>"; };
 		502066FB19234942004721A1 /* PELoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PELoginViewController.h; sourceTree = "<group>"; };
 		502066FC19234942004721A1 /* PELoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PELoginViewController.m; sourceTree = "<group>"; };
 		5020670819239571004721A1 /* PEAddExpenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEAddExpenseViewController.h; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 		502066C81922C384004721A1 /* PodioExpenses */ = {
 			isa = PBXGroup;
 			children = (
-				502066FA19234677004721A1 /* PEConstants.h */,
+				502066FA19234677004721A1 /* PEConfig.h */,
 				502066D11922C384004721A1 /* PEAppDelegate.h */,
 				502066D21922C384004721A1 /* PEAppDelegate.m */,
 				502066FB19234942004721A1 /* PELoginViewController.h */,
