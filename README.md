@@ -27,7 +27,7 @@ This project uses [CocoaPods](http://cocoapods.org/) to install 3rd party depend
 pod install
 ```
 
-Finally, you need to update the `PEConfig.h` file in the project with your API key, secret and app ID.
+Finally, you need to update the [PEConfig.h](https://github.com/podio/sample-ios-expenses/blob/master/PodioExpenses/PEConfig.h) file in the project with your API key, secret and app ID.
 
 That's it. You should now be able to build and run the app on a device or simulator.
 
