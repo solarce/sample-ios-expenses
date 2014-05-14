@@ -14,5 +14,5 @@
   #import <UIKit/UIKit.h>
   #import <Foundation/Foundation.h>
   #import <PodioKit/PodioKit.h>
-  #import "PEConstants.h"
+  #import "PEConfig.h"
 #endif
