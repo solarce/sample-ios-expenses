@@ -8,9 +8,11 @@
 
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "PEExpensesViewController.h"
-#import "PEConstants.h"
+#import "PEAddExpenseViewController.h"
 
-@interface PEExpensesViewController ()
+static NSNumberFormatter *moneyFormatter = nil;
+
+@interface PEExpensesViewController () <PEAddExpenseViewControllerDelegate>
 
 @property (nonatomic, copy) NSArray *expenses;
 
@@ -22,6 +24,16 @@
   [super viewWillAppear:animated];
   
   [self refreshExpenses];
+}
+
++ (void)initialize {
+  if (self == [PEExpensesViewController class]) {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+      moneyFormatter = [[NSNumberFormatter alloc] init];
+      moneyFormatter.numberStyle = NSNumberFormatterDecimalStyle;
+    });
+  }
 }
 
 #pragma mark - Private
@@ -59,9 +71,26 @@
   PKTMoney *money = expense[@"amount-2"];
   
   cell.textLabel.text = expense.title;
-  cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", money.currency, money.amount];
+  cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", [moneyFormatter stringFromNumber:money.amount], money.currency];
   
   return cell;
 }
+
+#pragma mark - PEAddExpenseViewControllerDelegate
+
+- (void)addExpenseController:(PEAddExpenseViewController *)controller didAddExpense:(PKTItem *)expense {
+  [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Storyboard
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  if ([segue.identifier isEqualToString:@"AddExpense"]) {
+    PEAddExpenseViewController *controller = segue.destinationViewController;
+    controller.delegate = self;
+  }
+}
+
+- (IBAction)closeAddExpense:(UIStoryboardSegue *)segue {}
 
 @end

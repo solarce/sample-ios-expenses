@@ -8,7 +8,6 @@
 
 #import <FXKeychain/FXKeychain.h>
 #import "PEAppDelegate.h"
-#import "PEConstants.h"
 
 static NSString * const kTokenKey = @"PodioExpensesToken";
 
