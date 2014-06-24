@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Citrix Systems, Inc. All rights reserved.
 //
 
-#import <FXKeychain/FXKeychain.h>
 #import "PEAppDelegate.h"
 
 static NSString * const kTokenKey = @"PodioExpensesToken";
@@ -20,9 +19,14 @@ static NSString * const kTokenKey = @"PodioExpensesToken";
 @implementation PEAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  // In order to talk to the Podio API, PodioKit needs to know your API key and secret.
+  // For more info, see https://developers.podio.com/api-key
   [PodioKit setupWithAPIKey:PODIO_KEY secret:PODIO_SECRET];
   
-  [self restoreTokenIfNeeded];
+  // We want the user session to persist across application lauches so we will tell PodioKit
+  // to store and manage the token in the keychain for us.
+  [PodioKit automaticallyStoreTokenInKeychainForCurrentApp];
+  
   [self setupNotifications];
   
   return YES;
@@ -55,40 +59,10 @@ static NSString * const kTokenKey = @"PodioExpensesToken";
   }
 }
 
-- (void)saveToken {
-  // Save the token to the keychain. Since all PodioKit model objects automatically
-  // supports NSCoding, we can use NSKeyedArchiver to save it as NSData.
-  PKTOAuth2Token *token = [PKTClient sharedClient].oauthToken;
-  NSData *tokenData = [NSKeyedArchiver archivedDataWithRootObject:token];
-  
-  if (tokenData) {
-    [[FXKeychain defaultKeychain] setObject:tokenData forKey:kTokenKey];
-  }
-}
-
-- (PKTOAuth2Token *)savedToken {
-  NSData *tokenData = [[FXKeychain defaultKeychain] objectForKey:kTokenKey];
-  
-  PKTOAuth2Token *token = nil;
-  if (tokenData) {
-    token = [NSKeyedUnarchiver unarchiveObjectWithData:tokenData];
-  }
-  
-  return token;
-}
-
-- (void)restoreTokenIfNeeded {
-  // If we were logged in a previous launch of the app, restore that token from the keychain
-  if (![PodioKit isAuthenticated]) {
-    [PKTClient sharedClient].oauthToken = [self savedToken];
-  }
-}
-
 #pragma mark - Notifications
 
 - (void)sessionDidChange:(NSNotification *)notification {
-  // If the session changed we need to save the new token and see if we need to show the login screen again.
-  [self saveToken];
+  // If the session changed we need to check if we need to show the login screen again.
   [self updateLoginScreen];
 }
 
