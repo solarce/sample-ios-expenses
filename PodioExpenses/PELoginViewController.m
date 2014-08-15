@@ -26,12 +26,12 @@
   [SVProgressHUD showWithStatus:@"Signing in..."];
   
   // This will authenticate the user agains the Podio API and maintain a session token
-  [PodioKit authenticateAsUserWithEmail:email password:password completion:^(PKTResponse *response, NSError *error) {
+  [[PodioKit authenticateAsUserWithEmail:email password:password] onSuccess:^(id result) {
     [SVProgressHUD dismiss];
-    
-    if (!error) {
-      NSLog(@"Successfully authenticated");
-    }
+    NSLog(@"Successfully authenticated");
+  } onError:^(NSError *error) {
+    [SVProgressHUD dismiss];
+    NSLog(@"Error: %@", [error localizedDescription]);
   }];
 }
 

@@ -49,13 +49,14 @@ static NSNumberFormatter *moneyFormatter = nil;
   [SVProgressHUD showWithStatus:@"Loading expenses..."];
   
   PEExpensesViewController __weak *weakSelf = self;
-  [PKTItem fetchItemsInAppWithID:PODIO_APP_ID offset:0 limit:20 completion:^(NSArray *items, NSUInteger filteredCount, NSUInteger totalCount, NSError *error) {
-    PEExpensesViewController __strong *strongSelf = weakSelf;
-    
+  [[PKTItem fetchItemsInAppWithID:PODIO_APP_ID offset:0 limit:20] onSuccess:^(NSDictionary *result) {
     [SVProgressHUD dismiss];
     
-    strongSelf.expenses = items;
+    PEExpensesViewController __strong *strongSelf = weakSelf;
+    strongSelf.expenses = result[@"items"];
     [strongSelf.tableView reloadData];
+  } onError:^(NSError *error) {
+    [SVProgressHUD dismiss];
   }];
 }
 

@@ -41,28 +41,21 @@ static NSString * const kPhotoImageName = @"Receipt.jpg";
   
   // First, upload the image file
   NSData *imageData = UIImageJPEGRepresentation(self.photoImage, 0.8f);
-  [PKTFile uploadWithData:imageData fileName:kPhotoImageName mimeType:@"image/jpeg" completion:^(PKTFile *file, NSError *error) {
-    if (!error) {
-      [SVProgressHUD dismiss];
-      
-      PKTItem *item = [PKTItem itemForAppWithID:PODIO_APP_ID];
-      item[@"title"] = title;
-      item[@"amount"] = amount;
-      item[@"receipt"] = file;
-
-      [item saveWithCompletion:^(PKTResponse *response, NSError *error) {
-        PEAddExpenseViewController __strong *strongSelf = weakSelf;
-        
-        if (!error) {
-          [SVProgressHUD dismiss];
-          [strongSelf didAddExpense:item];
-        } else {
-          [SVProgressHUD showErrorWithStatus:@"Failed to save expense."];
-        }
-      }];
-    } else {
-      [SVProgressHUD showErrorWithStatus:@"Failed to save expense."];
-    }
+  [[[PKTFile uploadWithData:imageData fileName:kPhotoImageName] flattenMap:^PKTAsyncTask *(PKTFile *file) {
+    [SVProgressHUD dismiss];
+    
+    PKTItem *item = [PKTItem itemForAppWithID:PODIO_APP_ID];
+    item[@"title"] = title;
+    item[@"amount"] = amount;
+    item[@"receipt"] = file;
+    
+    return [item save];
+  }] onSuccess:^(PKTItem *item) {
+    [weakSelf didAddExpense:item];
+    
+    [SVProgressHUD dismiss];
+  } onError:^(NSError *error) {
+    [SVProgressHUD showErrorWithStatus:@"Failed to save expense."];
   }];
 }
 
