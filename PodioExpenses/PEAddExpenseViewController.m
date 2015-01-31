@@ -41,7 +41,7 @@ static NSString * const kPhotoImageName = @"Receipt.jpg";
   
   // First, upload the image file
   NSData *imageData = UIImageJPEGRepresentation(self.photoImage, 0.8f);
-  [[[PKTFile uploadWithData:imageData fileName:kPhotoImageName] flattenMap:^PKTAsyncTask *(PKTFile *file) {
+  [[[PKTFile uploadWithData:imageData fileName:kPhotoImageName] pipe:^PKTAsyncTask *(PKTFile *file) {
     [SVProgressHUD dismiss];
     
     PKTItem *item = [PKTItem itemForAppWithID:PODIO_APP_ID];
